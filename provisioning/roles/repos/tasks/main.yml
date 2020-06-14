@@ -1,0 +1,22 @@
+- name: Add epel
+  yum:
+    name: epel-release
+    state: present
+
+- name: Download msprod.conf
+  get_url:
+    url: https://packages.microsoft.com/config/rhel/7/prod.repo 
+    dest: /etc/yum.repos.d/mspro.repo
+    mode: '0440'
+
+- name: Download docker-ce.conf
+  get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+    mode: '0440'
+
+- name: Add kubectl
+  copy:
+    src: files/kubernetes.repo
+    dest: /etc/yum.repos.d/kubernetes.repo
+    mode: '0440'

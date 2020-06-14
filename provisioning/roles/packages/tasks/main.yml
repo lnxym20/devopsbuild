@@ -1,0 +1,56 @@
+- name: Install packages using yum
+  yum:
+    name:
+      - yum-utils
+      - device-mapper-persistent-data
+      - lvm2
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - python3
+      - python3-pip
+      - python3-devel
+      - git
+      - gcc
+      - pwgen
+      - wget
+      - dos2unix
+      - unzip
+      - tree
+      - autoconf
+      - automake 
+      - bash-completion
+      - libtool
+      - jq
+    state: present
+
+- name: Install kubectl
+  yum:
+    name:
+      - kubectl
+    state: present
+
+- name: Install aws cli and docker-compose
+  pip:
+    name:
+      - awscli
+      - docker-compose
+    executable: pip3.6
+
+- name: Unarchive terraform
+  unarchive:
+    src: https://releases.hashicorp.com/terraform/{{ terraform_ver }}/terraform_{{ terraform_ver }}_linux_amd64.zip
+    dest: /usr/local/bin
+    remote_src: yes
+
+- name: Unarchive packer
+  unarchive:
+    src: https://releases.hashicorp.com/packer/{{ packer_ver }}/packer_{{ packer_ver }}_linux_amd64.zip
+    dest: /usr/local/bin
+    remote_src: yes
+
+- name: Unarchive vault
+  unarchive:
+    src: https://releases.hashicorp.com/vault/{{ vault_ver }}/vault_{{ vault_ver }}_linux_amd64.zip
+    dest: /usr/local/bin
+    remote_src: yes

@@ -1,0 +1,8 @@
+user_acc: "user1"
+user_ssh_key: "demo_id_rsa.pub"
+my_station: "devstation"
+terraform_ver: "0.11.14"
+vault_ver: "0.10.3"
+jq_ver: "0.1.6"
+packer_ver: "1.2.5"
+

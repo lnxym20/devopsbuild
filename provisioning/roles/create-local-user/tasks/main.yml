@@ -1,0 +1,17 @@
+---
+- name: Create myansible group (gid=8000)
+  group: gid=8000 name=myansible state=present
+
+- name: Create user (uid=8000)
+  user: name={{ user_acc }} uid=8000 shell=/bin/bash group=myansible home=/home/{{ user_acc }} createhome=yes state=present
+
+- name: Create .ssh directory for user
+  file: path=/home/{{ user_acc }}/.ssh state=directory owner={{ user_acc }} group=myansible mode=0700
+
+- name: Create authorized_keys file for local user
+  copy: src=files/{{ user_ssh_key }} dest=/home/{{ user_acc }}/.ssh/authorized_keys owner={{ user_acc }} group=myansible mode=0600
+
+- name: Create myansible sudoers file
+  copy: src=files/ansible_sudoers dest=/etc/sudoers.d/myansible owner=root group=root mode=0400
+
+
