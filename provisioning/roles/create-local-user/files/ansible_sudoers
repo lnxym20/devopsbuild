@@ -1,1 +1,1 @@
-%myansible         ALL=NOPASSWD:ALL
+%myansible ALL=(ALL) NOPASSWD: ALL
