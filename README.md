@@ -12,7 +12,9 @@ The original project was based on the following platforms:
 
 I assume you know how to install the above tools on top of Windows 10 Pro.
 
-This project was a learning excerise for myself to use Vagrant, VitualBox and Anisble to create a Centos VM with my DevOps toolkit.
+This branch is for Hyper-V.
+
+This project was a learning exercise for myself to use Vagrant, Hyper-V and Anisble to create a Centos VM with my DevOps toolkit.
 
 # What is in the VM?
 
